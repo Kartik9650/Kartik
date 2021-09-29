@@ -1,0 +1,78 @@
+class room {
+    boolean acon;
+    boolean homethon;
+    boolean fanon;
+    boolean lighton;
+    room() {
+        String sig;
+        String app;
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Which appliance you want  to turn ON/OFF");
+            app = sc.nextLine();
+            System.out.println("Enter ON/OFF");
+            sig = sc.nextLine();
+            if (app.equals("ac")) {
+                if (sig.equals( "on")) {
+                    acon = true;
+                }
+                else {
+                    acon = false;
+                }
+            }
+            else if (app.equals("home theatre")) {
+                if (sig.equals("on")) {
+                    homethon = true;
+                }
+                else {
+                    homethon = false;
+                }
+            }
+            else if (app.equals("light")) {
+                if (sig.equals("on")) {
+                    lighton = true;
+                }
+                else {
+                    lighton = false;
+                }
+            }
+            else if (app.equals("fan")) {
+                if (sig.equals("on")) {
+                    fanon = true;
+                }
+                else {
+                    fanon = false;
+                }
+            }
+        }
+    }
+    public void bill(){
+        int bil=0;
+        if(acon==true){
+            bil=bil+1200;
+        }
+        if(homethon==true){
+            bil=bil+600;
+        }
+        if(fanon==true){
+            bil=bil+400;
+        }
+        if(lighton==true){
+            bil=bil+100;
+        }
+        System.out.println(bil);
+        if(bil>2000){
+            System.out.println("Overload");
+        }
+        else{
+            System.out.println("good");
+        }
+    }
+
+}
+public class Main {
+    public static void main(String[] args) {
+        room obj=new room();
+        obj.bill();
+    }
+}
